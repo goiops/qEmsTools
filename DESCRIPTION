@@ -17,6 +17,7 @@ Imports:
     furrr,
     purrr,
     rstudioapi,
-    future
+    future,
+    httr
 Suggests: 
     testthat (>= 2.1.0)

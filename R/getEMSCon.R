@@ -6,6 +6,7 @@
 #' @export
 #' @import Rems
 #' @importFrom rstudioapi askForPassword
+#' @importFrom httr config
 #' @param username An EMS username as a string, usually something like "firstname.lastname"
 #' @examples
 #' \dontrun{
