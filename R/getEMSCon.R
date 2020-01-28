@@ -11,6 +11,7 @@
 #' @examples
 #' \dontrun{
 #' con <- getEMSCon("joe.bloggs")
+#' qry <- Rems::flt_query(conn = con, ems_name = "my-ems", data_file = "example.db")
 #' }
 #' @return
 #' This function returns a EMS connection object to be used in a FltQuery call.

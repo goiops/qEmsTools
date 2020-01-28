@@ -21,6 +21,7 @@ This securely creates an EMS connection object by using the RStudio prompt featu
 \examples{
 \dontrun{
 con <- getEMSCon("joe.bloggs")
+qry <- Rems::flt_query(conn = con, ems_name = "my-ems", data_file = "example.db")
 }
 }
 \author{
