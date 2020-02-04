@@ -17,7 +17,6 @@
 
 tsDataExtractor <- function(ts_data_record) {
 
-  ts_data_record <- ts_data_record[[1]]
   out <- ts_data_record$ts_data
   out$`Flight Record` <- ts_data_record$flt_data$`Flight Record`
 
