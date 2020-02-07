@@ -2,6 +2,7 @@
 
 export(emsMultifilter)
 export(getEMSCon)
+export(optional_generate_preset_fieldtree)
 export(run_multiflts_parallel)
 export(tsDataExtractor)
 import(Rems)
