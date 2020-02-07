@@ -24,7 +24,7 @@ run_multiflts_parallel <- function(flight_record_vector, ts_query) {
   safe_multiflts <- purrr::possibly(Rems::run_multiflts, otherwise = list())
 
   ts_records <- furrr::future_map(flight_record_vector,
-             ~ Rems::run_multiflts(ts_query, flight = .x))
+             ~ safe_multiflts(ts_query, flight = .x))
 
   ts_records <- purrr::compact(ts_records)
 
