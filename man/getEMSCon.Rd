@@ -4,10 +4,12 @@
 \alias{getEMSCon}
 \title{getEMSCon}
 \usage{
-getEMSCon(username)
+getEMSCon(username, server_url = "https://qfa-api.au.efoqa.com/api")
 }
 \arguments{
 \item{username}{An EMS username as a string, usually something like "firstname.lastname"}
+
+\item{server_url}{A URL indicating the root string of the API. Should be left at default unless connecting to another system.}
 }
 \value{
 This function returns a EMS connection object to be used in a FltQuery call.

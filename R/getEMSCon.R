@@ -8,6 +8,7 @@
 #' @importFrom rstudioapi askForPassword
 #' @importFrom httr config
 #' @param username An EMS username as a string, usually something like "firstname.lastname"
+#' @param server_url A URL indicating the root string of the API. Should be left at default unless connecting to another system.
 #' @examples
 #' \dontrun{
 #' con <- getEMSCon("joe.bloggs")
@@ -21,11 +22,11 @@
 #'
 
 
-getEMSCon <- function(username) {
+getEMSCon <- function(username, server_url = "https://qfa-api.au.efoqa.com/api") {
 
   password <- rstudioapi::askForPassword(prompt = "Enter your eFOQA password:")
 
-  connection_object <- Rems::connect(usr = username, pwd = password)
+  connection_object <- Rems::connect(usr = username, pwd = password, server_url = server_url)
 
   return(connection_object)
 
