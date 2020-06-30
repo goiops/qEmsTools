@@ -24,7 +24,9 @@
 
 optional_generate_preset_fieldtree <- function(qry, data_file = NA, full = FALSE) {
 if (is.na(data_file) | full | !file.exists(data_file)) {
-  return(Rems::generate_preset_fieldtree(qry))
+  qry <- Rems::generate_preset_fieldtree(qry)
+  Rems::save_metadata(qry = qry, file_name = data_file)
+  return(qry)
 } else {
   return(Rems::load_metadata(qry, file_name = data_file))
 }
