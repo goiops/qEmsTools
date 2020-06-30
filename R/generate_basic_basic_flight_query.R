@@ -29,8 +29,6 @@ generate_basic_flight_query <- function(connection_object, ems_name, db_name, re
   db_qry <- base_qry %>%
     set_database("FDW Flights") %>%
     optional_generate_preset_fieldtree(data_file = db_name, full = reload_preset_fieldtree)
-  field_qry <- db_qry %>%
-    Rems::update_fieldtree("navigation")
   filter_basic_qry <- field_qry %>%
     Rems::filter("'takeoff valid' == TRUE") %>%
     Rems::filter("'landing valid' == TRUE")
