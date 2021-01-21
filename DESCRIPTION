@@ -19,6 +19,7 @@ Imports:
     rstudioapi,
     future,
     httr,
-    htmltools
+    htmltools,
+    dplyr
 Suggests: 
     testthat (>= 2.1.0)

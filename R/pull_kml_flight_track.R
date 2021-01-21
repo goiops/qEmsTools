@@ -26,18 +26,7 @@ pull_kml_flight_track <- function(username, password, flight_record, trajectory_
 
   base_url = "https://qfa-api.au.efoqa.com/api"
 
-  token_body <- list( grant_type = "password",
-                      username   = username,
-                      password   = password)
-
-  token_header <- c("Content-Type" = "application/x-www-form-urlencoded")
-
-  token <- httr::POST(url = "https://qfa-api.au.efoqa.com/api/token",
-                      config = httr::add_headers(.headers = token_header),
-                      body = token_body,
-                      encode = "form"
-                      )
-  token_content <- httr::content(token)$access_token
+  token_content <- get_emsapi_token(username, password)
 
   trajectory_urlify <- htmltools::urlEncodePath(trajectory_config)
 
