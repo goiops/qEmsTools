@@ -24,8 +24,9 @@
 #'
 
 
-pull_df_flight_track <- function(username, password, flight_record, start = NULL, end = NULL) {
-
+pull_df_flight_track <- function(username, password, flight_record, start = NULL, end = NULL, verbose = FALSE) {
+  k1 <- Sys.time()
+  if(verbose) cat("Processing", flight_record, "...\n")
   base_url = "https://qfa-api.au.efoqa.com/api"
   token_content <- get_emsapi_token(username, password)
 
@@ -53,6 +54,8 @@ pull_df_flight_track <- function(username, password, flight_record, start = NULL
   names(df_content) <- ""
   df <- dplyr::bind_rows(df_content)
   df$flight_record <- flight_record
+  k2 <- Sys.time()
+  if(verbose) cat("Retrieve took:", k2 - k2)
   return(df)
 
 }
