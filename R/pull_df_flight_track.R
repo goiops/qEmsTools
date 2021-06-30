@@ -36,12 +36,10 @@ pull_df_flight_track <- function(username, password, flight_record, start = NULL
 
   if(!is.null(start) & !is.null(end)) {
     df_request_url <- paste0(df_request_url, "?start=", start, "&end=", end)
-  }
-  if(!is.null(start)) {
+  } else if(!is.null(start)) {
     df_request_url <- paste0(df_request_url, "?start=", start)
-  }
-  if(!is.null(end)) {
-    df_request_url <- paste0(df_request_url, "?end=", start)
+  } else if(!is.null(end)) {
+    df_request_url <- paste0(df_request_url, "?end=", end)
   }
 
   df_request <- httr::GET(url = df_request_url,
