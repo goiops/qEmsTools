@@ -13,13 +13,13 @@
 #' @param flight_record a numeric, indicating the flight record to be used for generation
 #' @param start a numeric, indicating the seconds offset the trajectory should start at (optional, defaults to start of record)
 #' @param end a numeric, indicating the seconds offset the trajectory should end at (optional, defaults to end of record)
+#' @param verbose a logical, indicating whether to print progress - useful for mapping over multiple flight records or large flights.
 #' @examples
 #' \dontrun{
-#' flight_track <- pull_kml_flight_track("firstname.lastname", "password", flight_record = 1)
-#' write(flight_track, "flight-track.kml")
+#' flight_track <- pull_df_flight_track("firstname.lastname", "password", flight_record = 1)
 #' }
 #' @return
-#' This function returns the KML data as text XML.To use it, write it to a file with a .kml extension.
+#' This function returns a data frame with offset, latitude, longitude, altitude and flight record details.
 #' @author Matt Simmons mattsimmons@qantas.com.au
 #'
 
@@ -55,7 +55,7 @@ pull_df_flight_track <- function(username, password, flight_record, start = NULL
   df <- dplyr::bind_rows(df_content)
   df$flight_record <- flight_record
   k2 <- Sys.time()
-  if(verbose) cat("Retrieve took:", k2 - k2)
+  if(verbose) cat("Retrieve took:", format(k2 - k2), "\n")
   return(df)
 
 }

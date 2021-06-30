@@ -9,7 +9,8 @@ pull_df_flight_track(
   password,
   flight_record,
   start = NULL,
-  end = NULL
+  end = NULL,
+  verbose = FALSE
 )
 }
 \arguments{
@@ -22,9 +23,11 @@ pull_df_flight_track(
 \item{start}{a numeric, indicating the seconds offset the trajectory should start at (optional, defaults to start of record)}
 
 \item{end}{a numeric, indicating the seconds offset the trajectory should end at (optional, defaults to end of record)}
+
+\item{verbose}{a logical, indicating whether to print progress - useful for mapping over multiple flight records or large flights.}
 }
 \value{
-This function returns the KML data as text XML.To use it, write it to a file with a .kml extension.
+This function returns a data frame with offset, latitude, longitude, altitude and flight record details.
 }
 \description{
 Uses the Trajectory API to retrieve a flight track directly
@@ -36,8 +39,7 @@ Not entirely clear just yet what parameters specifically are used.
 }
 \examples{
 \dontrun{
-flight_track <- pull_kml_flight_track("firstname.lastname", "password", flight_record = 1)
-write(flight_track, "flight-track.kml")
+flight_track <- pull_df_flight_track("firstname.lastname", "password", flight_record = 1)
 }
 }
 \author{
