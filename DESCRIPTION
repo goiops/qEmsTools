@@ -20,6 +20,7 @@ Imports:
     future,
     httr,
     htmltools,
-    dplyr
+    dplyr,
+    rlang
 Suggests: 
     testthat (>= 2.1.0)
