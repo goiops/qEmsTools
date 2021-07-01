@@ -19,7 +19,7 @@
 #'
 
 emsMultifilter <- function(qry, filter_vector) {
-  for (k in seq_along(length(filter_vector))) {
+  for (k in seq_along(filter_vector)) {
     filter_item <- filter_vector[k]
     qry <- Rems::filter(qry, filter_item)
   }
